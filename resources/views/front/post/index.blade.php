@@ -99,7 +99,7 @@
                                     <h2><a href="{{ route('blog.show', $post) }}" class="title">{{ $post->title }}</a></h2>
                                 <p class="meta"> <span class="meta-date">{{ $post->published_at->format('Y-m-d') }}</span><span class="meta-author">By {{ $post->user->name }}</span></p>
                                     <p>
-                                        {!! nl2br(e($post->body)) !!}
+                                        {!! $post->body !!}
                                     </p>
                                     <a href="{{ route('blog.show', $post) }}" class="btn btn-default">もっと読む</a> </div>
                             </div>

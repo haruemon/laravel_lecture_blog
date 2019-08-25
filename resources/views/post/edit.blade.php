@@ -11,6 +11,7 @@
 @stop
 
 @section('content')
+    <script src="//cdn.ckeditor.com/4.12.1/standard/ckeditor.js"></script>
     <div class="row">
         @if(!isset($post))
             {{ Form::open(['url' => route('post.store'), 'method' => 'post', 'class' => 'form-horizontal h-adr']) }}
@@ -52,7 +53,12 @@
                     <div class="form-group col-md-12 col-sm-12 @if($errors->has('body')) has-error @endif">
                         {{ Form::label('body', '本文', ['class' => 'col-lg-2 col-sm-3 control-label required']) }}
                         <div class="col-md-8 col-sm-8">
-                        {{ Form::textarea('body', null, ['class' => 'form-control']) }}
+                        {{ Form::textarea('body', null, ['class' => 'form-control', 'id' => 'editor']) }}
+                            <script>
+                                // Replace the <textarea id="editor1"> with a CKEditor
+                                // instance, using default configuration.
+                                CKEDITOR.replace( 'editor' );
+                            </script>
                         </div>
                         @if($errors->has('body'))
                         <span class="help-block">{{ $errors->first('body') }}</span>

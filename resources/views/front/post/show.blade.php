@@ -86,7 +86,7 @@
                 <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
                     <h1>{{ $post->title }}</h1>
                     <img src="images/service-single.jpg" alt="" class="img-responsive mb30">
-                    {!! nl2br(e($post->body)) !!}
+                    {!! $post->body !!}
                 </div>
                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                     <div class="sidenav">
@@ -188,7 +188,7 @@
         </div>
     </div>
     <!-- /.footer-->
-    
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="{{ asset('js/jquery.min.js') }}"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
