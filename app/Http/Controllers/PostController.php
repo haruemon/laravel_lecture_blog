@@ -39,17 +39,7 @@ class PostController extends Controller
      */
     public function store(PostRequest $request)
     {
-        $post = new Post();
-        $post->user_id = Auth::user()->id;
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->status = $request->status;
-        $post->status = $request->status;
-
-        if ($request->status == Post::PUBLISHED) {
-            $post->published_at = Carbon::today();
-        }
-        $post->save();
+        //ここに保存処理を追記
 
         return redirect()->route('post.show', compact('post'))->with('success', __('message.success'));
     }
@@ -82,15 +72,7 @@ class PostController extends Controller
      */
     public function update(PostRequest $request, Post $post)
     {
-        $post->user_id = Auth::user()->id;
-        $post->title = $request->title;
-        $post->body = $request->body;
-        $post->status = $request->status;
-
-        if ($request->status == Post::PUBLISHED) {
-            $post->published_at = Carbon::today();
-        }
-        $post->save();
+        //ここに保存処理を追記
         return back()->with('success', __('message.success'));
     }
 

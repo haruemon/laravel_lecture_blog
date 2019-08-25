@@ -20,7 +20,6 @@ Route::get('/blog/{post}', 'FrontController@show')->name('blog.show');
 
 Route::group(['middleware' => ['auth']], function () {
     //ここにルートを追加しよう！
-    Route::resource('/post', 'PostController');
     Route::resource('/user', 'UserController');
     Route::get('/csv_import/{table_name}', 'CsvImportController@index')->name('csv_import.index');
     Route::post('/csv_import/{table_name}', 'CsvImportController@store')->name('csv_import.store');
